@@ -1,5 +1,6 @@
 html,
 body {
+  position: relative;
   font: 14px/24px 'Microsoft YaHei';
   color: #666;
   background-color: #fff;
@@ -155,7 +156,7 @@ ol {
   background-color: #328c2a;
 }
 .m-header .follow .cancel {
-  display: inline-block;
+  display: none;
   margin-right: 14px;
   padding: 0 6px;
   height: 18px;
@@ -379,6 +380,7 @@ ol {
 .m-productList .list .item .detail {
   display: none;
   position: absolute;
+  z-index: 2;
   left: -10px;
   top: -10px;
   width: 480px;
@@ -415,6 +417,10 @@ ol {
   background-color: #f8f8f8;
   color: #666;
   font-size: 14px;
+}
+.m-productList .list .item .detail .text div {
+  height: 43px;
+  overflow: hidden;
 }
 .m-productList .page {
   margin-top: 30px;
@@ -485,8 +491,17 @@ ol {
 .m-institution .bd img {
   cursor: pointer;
 }
+.m-hotRanking .cnt {
+  position: relative;
+  height: 680px;
+  overflow: hidden;
+}
 .m-hotRanking ul {
+  position: absolute;
+  top: -700px;
+  width: 180px;
   margin-top: -20px;
+  transition: 1s;
 }
 .m-hotRanking li {
   margin-top: 20px;
@@ -542,4 +557,76 @@ ol {
 }
 .m-footer .link dl dd {
   margin-bottom: 10px;
+}
+.m-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.m-modal .bd {
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 390px;
+  height: 290px;
+  margin-left: -195px;
+  margin-top: -145px;
+  padding: 30px;
+  background-color: #fff;
+}
+.m-modal .close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+.m-modal-login .title {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.m-modal-login form p {
+  margin-bottom: 15px;
+}
+.m-modal-login form input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  padding: 0 10px;
+  border: 1px solid #dfdfdf;
+  box-shadow: inset 1px 1px 4px 0 #f1f1f1;
+  outline: none;
+  font-size: 16px;
+  color: #333;
+}
+.m-modal-login form input[type='button'] {
+  box-shadow: none;
+  color: #fff;
+  background: linear-gradient(#31b658, #159631);
+  cursor: pointer;
+}
+.m-modal-video .bd {
+  width: 890px;
+  height: 560px;
+  margin-left: -445px;
+  margin-top: -280px;
+}
+.m-modal-video p {
+  margin-bottom: 10px;
+}
+.m-modal-video video {
+  width: 100%;
+  height: 466px;
+}
+body.modal {
+  overflow: hidden;
+  padding-right: 17px;
+  z-index: 1;
 }
