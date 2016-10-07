@@ -741,8 +741,18 @@ cm.app = {
     hotList: function() {
         var oList = cm.tool.gel('.j-hotRankingList')[0];
         var arrData = [];
-        var curIndex = 0;
         var timer = null;
+        var arr1 = [];
+
+        for(var i=0;i<20;i++){
+            arr1.push(i);
+        }
+
+        arr1.sort(randomsort);
+        function randomsort(a, b) {  
+            return Math.random()>.5 ? -1 : 1;
+        }  
+
 
         cm.tool.ajax({
             method: 'GET',
@@ -766,9 +776,9 @@ cm.app = {
                 var listHTML = '';
                 for (var i = 0; i < arrData.length; i++) {
                     listHTML += '<li>\
-                                <img width="50" height="50" src="' + arrData[i].smallPhotoUrl + '" alt="">\
-                                <h3><a href="#">' + arrData[i].name + '</a></h3>\
-                                <span><i class="u-icon u-icon-people"></i> ' + arrData[i].learnerCount + '</span>\
+                                <img width="50" height="50" src="' + arrData[arr1[i]].smallPhotoUrl + '" alt="">\
+                                <h3><a href="#">' + arrData[arr1[i]].name + '</a></h3>\
+                                <span><i class="u-icon u-icon-people"></i> ' + arrData[arr1[i]].learnerCount + '</span>\
                             </li>';
                 }
                 oList.innerHTML = '';
@@ -782,12 +792,11 @@ cm.app = {
 
         oList.addEventListener('mouseout', function() {
             timer = setInterval(function() {
-                curIndex++;
-                if (curIndex == 11) {
-                    curIndex = 0;
+
+                var top = parseInt(cm.tool.getStyle(oList, 'top'));
+                if (top == 0) {
                     oList.style.top = '-700px';
                 } else {
-                    var top = parseInt(cm.tool.getStyle(oList, 'top'));
                     top = top + 70;
                     oList.style.top = top + 'px';
                 }
@@ -796,16 +805,13 @@ cm.app = {
         }, false);
 
         timer = setInterval(function() {
-            curIndex++;
-            if (curIndex == 11) {
-                curIndex = 0;
+            var top = parseInt(cm.tool.getStyle(oList, 'top'));
+            if (top == 0) {
                 oList.style.top = '-700px';
             } else {
-                var top = parseInt(cm.tool.getStyle(oList, 'top'));
                 top = top + 70;
                 oList.style.top = top + 'px';
             }
-
         }, 5000);
     }
 };

@@ -711,3 +711,61 @@ body.modal {
 }
 
 //============ E module ============
+
+
+//============ S 窄屏适应 ============
+/* 窗口宽度<1205,设计宽度=960 */
+@media screen and (max-width:1204px){
+    .g-container{
+        width: 960px;
+    }
+    .g-main{
+        width: 724px;
+    }
+    .g-side{
+        width: 225px;
+    }
+    .m-productInfo{
+        li{
+            width: 320px;
+        }
+        .text{
+            width: 175px;
+        }
+    }
+    .m-productList {
+        .list {
+            ul{
+                margin-top: -18px;
+                margin-left: -18px;
+            }
+            .item{
+                width: 224px;
+                margin-left: 18px;
+                margin-top: 18px;
+                a{
+                    img{
+                        width: 226px;
+                    }
+                }
+                .detail{
+                    width: 470px;
+                    top: 0;
+                    left: 0;
+                    .bd img{
+                        width: 226px;
+                    }
+                }
+            }
+        }
+    }
+
+    .m-footer {
+        .link{ 
+            dl{
+                width: 180px;
+            }
+        }
+    }
+}
+//============ E 窄屏适应 ============
